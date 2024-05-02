@@ -51,7 +51,7 @@ body{
 
 .description__item {
     /* background: blue; */
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: 75vh;
     padding: 20px;
 }
@@ -69,11 +69,11 @@ body{
     height: 200px;
     background-size: cover;
     border-radius: 10px;
-    margin-block: 15px;
+    margin-top: 15px;
     font-size: 30px;
-    background-image: 
+    /* background-image: 
     linear-gradient(to bottom, rgba(245, 246, 252, 0.52), #298cfe75),
-    url('https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg');
+    url('https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'); */
     position: relative
 }
 
