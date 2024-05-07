@@ -41,6 +41,8 @@ body {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
 }
 .load{
     background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
@@ -69,13 +71,68 @@ body {
     grid-area: nav__1;
 }
 
+/* DESCRIPTION */
+
 .description__item {
     /* background: blue; */
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: 75vh;
+    padding: 20px;
 }
 
-.description__buttom {
+.description__item .rocketName {
+    font-size: 35px;
+}
+
+.description__item .rocketId {
+    font-size: 13px;
+}
+
+.description__item .rocketImg {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 30px;
+    /* background-image: 
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), #298cfe75),
+    url('https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg'); */
+    position: relative
+}
+
+.description__item .rocketImg span a i {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: black;
+}
+
+.description__item .rocketDescription {
+    margin-block: 20px;
+}
+
+
+.description__item .description__item__values {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.description__item .description__item__values .description__value {
+    border-left: 4px solid #298cfe;
+    padding-left: 5px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: rgba(0, 75, 141, 0.514);
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+.description__buttom{
     /* background: #00ff84; */
     display: flex;
     justify-content: center;
