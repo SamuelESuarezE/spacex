@@ -230,23 +230,6 @@ body {
         "table__colum__1";
 }
 
-.section__information__2 div:first-child {
-    /* background: #d9ff00; */
-    grid-area: carusel__colum__1;
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    justify-content: space-evenly;
-}
-
-.section__information__2 div:first-child>.carousel__item {
-    /* flex: 1; */
-    min-width: 48%;
-    /* background-color: purple; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .information__table__1 {
     width: 85%;
@@ -315,23 +298,6 @@ body {
         "table__colum__2";
 }
 
-.section__information__3 div:first-child {
-    /* background: #d9ff00; */
-    grid-area: carusel__colum__2;
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    justify-content: space-evenly;
-}
-
-.section__information__3 div:first-child>.carousel__item {
-    /* flex: 1; */
-    min-width: 48%;
-    /* background-color: purple; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .information__table__2 {
     width: 85%;
     margin: 10px auto;
@@ -521,4 +487,9 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
     border-radius: 10em;
     background: var(--color);
+}
+
+.rocketStage {
+    display: flex;
+    flex-direction: column;
 }

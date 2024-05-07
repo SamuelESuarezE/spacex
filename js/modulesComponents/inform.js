@@ -79,3 +79,64 @@ export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
     //     </div>
     // </div>
 }
+
+export const informRocketStages = async(rocket) => {
+    let rocketStage1 = document.querySelector("#rocketStage1");
+
+    rocketStage1.innerHTML = /*html*/`
+        <h1 style="color: var(--color--two); margin-inline: auto; margin-top: 20px">STAGE 1</h1>
+        <hr style="color: var(--color--two); margin-block: 6px">
+        <table>
+            <tr>
+                <td style="color: var(--color--two)">Reusable</td>
+                <td style="font-weight: bold">${rocket.first_stage.reusable}</td>
+            </tr>
+            <tr>
+                <td style="color: var(--color--two)">Engines</td>
+                <td style="font-weight: bold">${rocket.first_stage.engines}</td>
+            </tr>
+            <tr>
+                <td style="color: var(--color--two)">Fuel amount</td>
+                <td style="font-weight: bold">${rocket.first_stage.fuel_amount_tons} tons.</td>
+            </tr>
+            <tr>
+                <td style="color: var(--color--two)">Burn time</td>
+                <td style="font-weight: bold">${rocket.first_stage.burn_time_sec || "N/A"} secs.</td>
+            </tr>
+        </table>
+    `
+    rocketStage1.style.color = "white"
+    rocketStage1.style.paddingInline = "30px"
+
+
+ 
+
+
+
+    let rocketStage2 = document.querySelector("#rocketStage2");
+    rocketStage2.innerHTML = /*html*/`
+        <h1 style="color: var(--color--two); margin-inline: auto; margin-top: 20px">STAGE 2</h1>
+        <hr style="color: var(--color--two); margin-block: 6px">
+        <table>
+            <tr>
+                <td style="color: var(--color--two)">Reusable</td>
+                <td style="font-weight: bold">${rocket.second_stage.reusable}</td>
+            </tr>
+            <tr>
+                <td style="color: var(--color--two)">Engines</td>
+                <td style="font-weight: bold">${rocket.second_stage.engines}</td>
+            </tr>
+            <tr>
+                <td style="color: var(--color--two)">Fuel amount</td>
+                <td style="font-weight: bold">${rocket.second_stage.fuel_amount_tons} tons.</td>
+            </tr>
+            <tr>
+                <td style="color: var(--color--two)">Burn time</td>
+                <td style="font-weight: bold">${rocket.second_stage.burn_time_sec || "N/A"} secs.</td>
+            </tr>
+        </table>
+    `
+    rocketStage2.style.color = "white"
+    rocketStage2.style.paddingInline = "30px"
+
+}

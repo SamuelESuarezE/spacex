@@ -12,7 +12,8 @@ import {
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
-    informRocketEngineThrustVacuum
+    informRocketEngineThrustVacuum,
+    informRocketStages
 } from "./inform.js";
 import { 
     imageRockets 
@@ -128,7 +129,7 @@ const getRocketsId = async(e)=>{
 
     await tableRocketColum1(Rocket)
     await tableRocketColum2(Rocket)
-
+    await informRocketStages(Rocket)
     await progressRocketWeight(Rocket)
     await progressPayloadWeights(Rocket)
     await progressHeightRocket(Rocket)
