@@ -78,14 +78,17 @@ body {
     /* overflow-y: auto; */
     height: 75vh;
     padding: 20px;
+    color: var(--color--five);
 }
 
-.description__item .rocketName {
-    font-size: 35px;
+.description__item .rocketDescriptionH1 {
+    font-size: 30px;
+    margin-top: 20px;
 }
 
 .description__item .rocketId {
     font-size: 13px;
+    margin-top: 30px;
 }
 
 .description__item .rocketImg {
@@ -101,15 +104,9 @@ body {
     position: relative
 }
 
-.description__item .rocketImg span a i {
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-    color: black;
-}
-
 .description__item .rocketDescription {
-    margin-block: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 

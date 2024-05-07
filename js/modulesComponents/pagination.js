@@ -151,7 +151,7 @@ export const paginationRockets = async()=>{
     });
     
     let [a1,a2,a3,a4] = div.children
-    a3.click();
+    a1.click();
     // <div class="buttom__paginacion">
     //     <a href="#">&laquo;</a> 
     //     <a href="#" class="activo">1</a>
