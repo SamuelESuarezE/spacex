@@ -79,6 +79,13 @@ export const load = async()=>{
         <div class="load"></div>
         <div class="load"></div>
     `;
+
+    let rocketStages__2 = document.querySelector("#rocketStage2");
+    rocketStages__2.innerHTML = `<div class="load"></div>`
+
+
+    let rocketStages__1 = document.querySelector("#rocketStage1");
+    rocketStages__1.innerHTML = `<div class="load"></div>`
 }
 export const clear = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -102,6 +109,9 @@ export const clear = async()=>{
 
     let information__2 = document.querySelector("#information__2")
     information__2.innerHTML = ``;
+
+
+
 
 }
 

@@ -64,7 +64,7 @@ export const render__description__values = (rocket) => {
     description__value__more__info.innerHTML = /*html*/`
         <a target="_blank" href="${rocket.wikipedia}" style="display: flex; text-decoration: none; color: white; font-size: 15px; gap: 10px; align-items: center">
             <i class='bx bxl-wikipedia' style="font-size: 30px;"></i>
-            <p>More information here</p>
+            <p><strong>More information here</strong></p>
         </a>
     `
     description__value__more__info.style.marginTop = "20px"

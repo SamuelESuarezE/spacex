@@ -5,7 +5,7 @@
     margin: 0;
     box-sizing: border-box;
 
-    font-family: "Roboto-Regular";
+    font-family: "Roboto Mono";
 }
 
 body {
@@ -41,8 +41,9 @@ body {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
+    font-style: italic;
 }
 .load{
     background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
@@ -176,6 +177,7 @@ body {
     overflow-x: auto;
     gap: 10px;
     justify-content: space-evenly;
+    font-size: 14px;
 }
 
 .section__information__1>.carousel__item {
@@ -437,6 +439,7 @@ body {
     align-content: center;
     margin: 0 var(--layout-description-container-x);
     margin-bottom: 20px;
+    font-size: 15px;
 }
 
 .information__container div:first-child {
@@ -492,4 +495,34 @@ progress[value]::-moz-progress-bar {
 .rocketStage {
     display: flex;
     flex-direction: column;
+}
+
+#rocketCenterIcon {
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    height: 12vw;
+    animation: elonVolando 4s infinite ease-in-out;
+}
+
+@keyframes elonVolando {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    75% {
+        transform: rotate(3deg);
+
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }

@@ -14,7 +14,7 @@ export const progressRocketWeight = async(Rockets)=>{
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
-        labelFist.textContent = "Rocket weight :";
+        labelFist.textContent = "Rocket weight";
     
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = kg
@@ -55,7 +55,7 @@ export const progressPayloadWeights = async(Rockets)=>{
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
-        labelFist.textContent = `${val.name} :`;
+        labelFist.textContent = `${val.name}`;
     
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = kg;
@@ -96,7 +96,7 @@ export const progressHeightRocket = async(Rockets)=>{
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
-        labelFist.textContent = `Rocket Height :`;
+        labelFist.textContent = `Rocket Height`;
     
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = meters;
@@ -137,7 +137,7 @@ export const progressDiameterRocket = async(Rockets)=>{
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
-        labelFist.textContent = `Rocket diameter :`;
+        labelFist.textContent = `Rocket diameter`;
     
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = meters;
@@ -178,7 +178,7 @@ export const progressSecondStageDiameterRocket = async(Rockets)=>{
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
-        labelFist.textContent = `Diameter rocket shield :`;
+        labelFist.textContent = `Diameter rocket shield`;
     
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = meters;
@@ -219,7 +219,7 @@ export const progressSecondStageHeightRocket = async(Rockets)=>{
         divInformationContainer.classList.add("information__container")
         let divFirst = document.createElement("div");
         let labelFist = document.createElement("label");
-        labelFist.textContent = `Height rocket shield :`;
+        labelFist.textContent = `Height rocket shield`;
     
         let ProgressFist = document.createElement("progress");
         ProgressFist.max = meters;
