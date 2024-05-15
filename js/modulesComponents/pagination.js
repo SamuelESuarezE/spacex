@@ -28,7 +28,7 @@ import {
 } from "../modulesComponents/progressBar.js";
 ///
 import { 
-    getAllCapsules, getAllCapsulesId 
+    getAllCapsules, getAllCapsulesId, tablesCapsule 
 } from "../modules/capsules.js";
 import {
     render__description__main,
@@ -109,10 +109,6 @@ export const clear = async()=>{
 
     let information__2 = document.querySelector("#information__2")
     information__2.innerHTML = ``;
-
-
-
-
 }
 
 const getRocketsId = async(e)=>{
@@ -199,6 +195,10 @@ const getCapsulesId = async(e)=>{
 
     await nameRockets(Capsule.serial)
 
+    await tablesCapsule(Capsule)
+
+
+
 }
 
 export const paginationCapsules = async(page=1, limit=4)=>{  
@@ -230,7 +230,7 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getCapsulesId)
     div.appendChild(end);
-    console.log(div);
+
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
     // <div class="buttom__paginacion">

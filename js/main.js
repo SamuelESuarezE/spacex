@@ -1,3 +1,4 @@
+
 import { 
     load,
     paginationCapsules,
@@ -17,17 +18,22 @@ let footerSelect = async(e, id)=>{
 }
 
 
-let rocket = document.querySelector("#rocket")
+let ul = document.querySelector("#navegator")
+
+let [rocket, capsules] = ul.children
+
 rocket.addEventListener("click", async(e)=>{
     await footerSelect(e, rocket)
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationRockets())
+
 } )
 
-let capsules = document.querySelector("#capsules")
+
 capsules.addEventListener("click", async(e)=>{
     await footerSelect(e, capsules)
+
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationCapsules())
