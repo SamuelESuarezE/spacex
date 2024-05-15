@@ -28,7 +28,7 @@ import {
 } from "../modulesComponents/progressBar.js";
 ///
 import { 
-    getAllCapsules 
+    getAllCapsules, getAllCapsulesId 
 } from "../modules/capsules.js";
 import {
     render__description__main,
@@ -181,6 +181,12 @@ const getCapsulesId = async(e)=>{
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
         paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
     }
     let a = e.target.parentElement.children;
     for(let val of a){
@@ -188,12 +194,11 @@ const getCapsulesId = async(e)=>{
     }
     e.target.classList.add('activo');
     
+    let Capsule = await getAllCapsulesId(e.target.id);
+    await clear();
 
-    // let Rocket = await getAllRocketsId(e.target.id);
-    // console.log(Rocket);
+    await nameRockets(Capsule.serial)
 
-    // await informationRockets(Rocket.country, Rocket.description)
-    
 }
 
 export const paginationCapsules = async(page=1, limit=4)=>{  

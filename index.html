@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceX</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="./storage/img/favicon.png" type="image/x-icon">
     <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
@@ -58,56 +60,86 @@
                 <ul>
                     <li id="rocket">
                         <a class="select" href="#">
-                            <img src="storage/img/icons/rocket.svg">
+                            <i class="bi bi-rocket-fill"></i>
                             <span>Rockets</span>
                         </a>
                     </li>
                     <li id="capsules">
                         <a href="#">
-                            <img src="storage/img/icons/capsule.svg">
+                            <i class="bi bi-hexagon-fill"></i>
                             <span>Capsules</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="crew">
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Crew</span>
+                        </a>
+                    </li>
+                    <li id="launches">
+                        <a href="#">
+                            <i class="bi bi-rocket-takeoff-fill"></i>
+                            <span>Launches</span>
+                        </a>
+                    </li>
+                    <li id="cores">
+                        <a href="#">
+                            <i class="bi bi-slack"></i>
+                            <span>Cores</span>
+                        </a>
+                    </li>
+                    <li id="landspads">
+                        <a href="#">
+                            <i class="bi bi-eject-fill"></i>
+                            <span>Landspads</span>
+                        </a>
+                    </li>
+                    <li id="ships">
+                        <a href="#">
+                            <i class="bi bi-water"></i>
+                            <span>Ships</span>
+                        </a>
+                    </li>
+                    <li id="company">
+                        <a href="#">
+                            <i class="bi bi-building-fill"></i>
+                            <span>Company</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-bounding-box-circles"></i>
+                            <span>Dragons</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="history">
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-file-earmark-word-fill"></i>
+                            <span>History</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="launchpads">
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-eject"></i>
+                            <span>Launchpads</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="payloads">
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-box"></i>
+                            <span>Payloads</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="roadster">
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-car-front-fill"></i>
+                            <span>Roadster</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="starlink">
                         <a href="#">
-                            <img src="http://www.example.com">
-                            <span>a</span>
+                            <i class="bi bi-star-fill"></i>
+                            <span>Starlink</span>
                         </a>
                     </li>
                 </ul>
@@ -125,22 +157,7 @@
         </nav>
     </main>
 
-    
-    <!-- Check icons -->
-    <!-- <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
-    <i class='bx bxs-check-circle' style='color:#40c110'  ></i>
-    <i class='bx bxs-check-circle' style='color:#ea7b15'  ></i> -->
 
-    <!-- Nav icons -->
-    <!-- <img src="storage/img/icons/rocket.svg">
-    <i class='bx bx-body' style='color:#e72d2d'></i>
-    <img src="storage/img/icons/comms.svg">
-    <img src="storage/img/icons/prop.svg">
-    <img src="storage/img/icons/mech.svg">
-    <i class='bx bxs-battery-charging bx-rotate-270' style='color:#ffffff'  ></i>
-    <i class='bx bxs-chip' style='color:#ffffff'  ></i>
-    <i class='bx bx-current-location bx-rotate-270' style='color:#ffffff'  ></i>
-    <i class='bx bxs-brightness-half' style="color: #fff"></i>  -->
     <img id="rocketCenterIcon" src="./storage/img/rocketCenter.png" alt="">
 </body>
 </html>
