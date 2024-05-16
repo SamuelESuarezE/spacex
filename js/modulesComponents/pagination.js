@@ -28,12 +28,13 @@ import {
 } from "../modulesComponents/progressBar.js";
 ///
 import { 
-    getAllCapsules, getAllCapsulesId, tablesCapsule 
+    getAllCapsules, getAllCapsulesId, imageCapsule, tablesCapsule, tablesCapsule2 
 } from "../modules/capsules.js";
 import {
     render__description__main,
     render__description__values
 } from "../modulesComponents/rocketDescription.js"
+import { getAllCrew, getAllCrewId } from "../modules/crew.js";
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -196,7 +197,8 @@ const getCapsulesId = async(e)=>{
     await nameRockets(Capsule.serial)
 
     await tablesCapsule(Capsule)
-
+    await tablesCapsule2(Capsule)
+    await imageCapsule(Capsule)
 
 
 }
@@ -243,3 +245,72 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     // </div>
     return div;
 }
+
+
+
+const getCrewId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            console.log(a1);
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Crew = await getAllCrewId(e.target.id);
+    await clear();
+
+    await nameRockets(Crew.name)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+
+
+}
+export const paginationCrew = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCrew(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCrewId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCrewId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCrewId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+

@@ -27,9 +27,9 @@ export const getAllCapsulesId = async (id)=>{
 }
 
 export const tablesCapsule = async (Capsule)=>{
-    let information__table__1 = document.querySelector("#rocketStage1");
+    let information1 = document.querySelector("#rocketStage1");
 
-    information__table__1.innerHTML = /*html*/`
+    information1.innerHTML = /*html*/`
         <style>${getIconTableStyle()}</style>
         <h1 class="iconTableTitle">Capsule Data</h1>
         <div class="container">
@@ -60,45 +60,113 @@ export const tablesCapsule = async (Capsule)=>{
             </div>
         </div>
     `
-    information__table__1.style.color = "white"
-    information__table__1.style.paddingInline = "30px"
+    information1.style.color = "white"
+    information1.style.paddingInline = "30px"
 
 
 
-    let information__table__2 = document.querySelector("#rocketStage2");
+    let information2 = document.querySelector("#rocketStage2");
 
-    information__table__2.innerHTML = /*html*/`
+    information2.innerHTML = /*html*/`
         <style>${getIconTableStyle()}</style>
-        <h1 class="iconTableTitle">More information</h1>
+        <h1 class="iconTableTitle">Landing Information</h1>
         <div class="container">
             <div class="icon">
-                <i class='bx bx-universal-access' ></i>
+            <i class='bx bx-water'></i>
             </div>
             <div class="content">
-                <p><strong>Property</strong></p>
-                <p>Value</p>
+                <p><strong>Water Landings</strong></p>
+                <p>${Capsule.water_landings}</p>
             </div>
         </div>
         <div class="container">
             <div class="icon">
-            <i class='bx bx-universal-access' ></i>
+            <i class='bx bxs-landscape' ></i>
             </div>
             <div class="content">
-            <p><strong>Property</strong></p>
-            <p>Value</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="icon">
-            <i class='bx bx-universal-access' ></i>
-            </div>
-            <div class="content">
-            <p><strong>Property</strong></p>
-            <p>Value</p>
+            <p><strong>Land Landings</strong></p>
+            <p>${Capsule.land_landings}</p>
             </div>
         </div>
     `
-    information__table__2.style.color = "white"
-    information__table__2.style.paddingInline = "30px"
-    
+    information2.style.color = "white"
+    information2.style.paddingInline = "30px"
+}
+
+export const tablesCapsule2 = async (Capsule)=>{
+    let information3 = document.querySelector("#information__table__1");
+
+    information3.innerHTML = /*html*/`
+        <style>${getIconTableStyle()}</style>
+        <h1 class="iconTableTitle">Reuse Information</h1>
+        <div class="container">
+            <div class="icon">
+            <i class='bx bx-recycle' ></i>
+            </div>
+            <div class="content">
+                <p><strong>Reuse Count</strong></p>
+                <p>${Capsule.reuse_count}</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="icon">
+            <i class='bx bx-rocket' ></i>
+            </div>
+            <div class="content">
+            <p><strong>Launches</strong></p>
+            <p>${Capsule.launches[0] || ""}</p>
+            <p>${Capsule.launches[1] || ""}</p>
+            <p>${Capsule.launches[2] || ""}</p>
+            </div>
+        </div>
+
+    `
+    information3.style.color = "white"
+    information3.style.paddingInline = "30px"
+
+
+
+    let information4 = document.querySelector("#information__table__2");
+
+    information4.innerHTML = /*html*/`
+        <style>${getIconTableStyle()}</style>
+        <div class="container">
+            <div class="icon">
+            <i class='bx bxs-analyse' ></i>
+            </div>
+            <div class="content">
+                <p><strong>Status</strong></p>
+                <p>${Capsule.status}</p>
+            </div>
+        </div>
+    `
+    information4.style.color = "white"
+    information4.style.paddingInline = "30px"
+}
+
+export const imageCapsule = async (Capsule)=>{
+    let information5 = document.querySelector("#section__image");
+
+    information5.innerHTML = /*html*/`
+        <style>
+            #section__image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            hr {
+                width: 100%;
+            }
+        </style>
+        <h1 style="color: var(--color--five); margin-inline: auto; margin-top: 20px">LAST UPDATE</h1>
+        <hr style="color: var(--color--five); margin-block: 6px">
+        <table>
+            <td style="font-weight: bold">${Capsule.last_update || "No information"}</td>
+        </table>
+    `
+    information5.style.color = "white"
+    information5.style.paddingInline = "30px"
+
 }
