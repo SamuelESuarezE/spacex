@@ -35,6 +35,13 @@ import {
     render__description__values
 } from "../modulesComponents/rocketDescription.js"
 import { getAllCrew, getAllCrewId } from "../modules/crew.js";
+import { getAllLaunches, getAllLaunchesId } from "../modules/launches.js";
+import { getAllCores, getAllCoresId } from "../modules/cores.js";
+import { getAllLandpads, getAllLandpadsId } from "../modules/landpads.js";
+import { getAllShips, getAllShipsId } from "../modules/ships.js";
+import { getCompany } from "../modules/company.js";
+import { getAllDragons, getAllDragonsId } from "../modules/dragons.js";
+import { getAllHistory, getAllHistoryId } from "../modules/history.js";
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -181,7 +188,7 @@ const getCapsulesId = async(e)=>{
         setTimeout(() => {
             let paginacion = document.querySelector("#paginacion");
             let a1 = paginacion.children[0].children[1]
-            console.log(a1);
+            
             a1.click();
         }, 200);
     }
@@ -257,7 +264,7 @@ const getCrewId = async(e)=>{
         setTimeout(() => {
             let paginacion = document.querySelector("#paginacion");
             let a1 = paginacion.children[0].children[1]
-            console.log(a1);
+            
             a1.click();
         }, 200);
     }
@@ -314,3 +321,402 @@ export const paginationCrew = async(page=1, limit=4)=>{
     return div;
 }
 
+const getLaunchesId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Launch = await getAllLaunchesId(e.target.id);
+    await clear();
+
+    await nameRockets(Launch.name)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+
+
+}
+export const paginationLaunches = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunches(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchesId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchesId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchesId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getCoresId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCores(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Core = await getAllCoresId(e.target.id);
+    await clear();
+
+    await nameRockets(Core.serial)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+
+
+}
+export const paginationCores = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCores(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCoresId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCoresId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCoresId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getLandpadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLandpads(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Landpad = await getAllLandpadsId(e.target.id);
+    await clear();
+
+    await nameRockets(Landpad.full_name)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+
+
+}
+export const paginationLandpads = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLandpads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLandpadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLandpadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLandpadsId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+
+const getShipsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationShips(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Ship = await getAllShipsId(e.target.id);
+    await clear();
+
+    await nameRockets(Ship.name)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+
+
+}
+export const paginationShips = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllShips(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getShipsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getShipsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getShipsId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+export const companyInformation = async() => {
+    let data = await getCompany()
+    await nameRockets(data.name)
+}
+
+const getDragonsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationDragons(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let Dragon = await getAllDragonsId(e.target.id);
+    await clear();
+
+    await nameRockets(Dragon.name)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+}
+
+export const paginationDragons = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllDragons(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getDragonsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getDragonsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getDragonsId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getHistoryId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let History = await getAllHistoryId(e.target.id);
+    await clear();
+
+    await nameRockets(History.title)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
+}
+
+export const paginationHistory = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllHistory(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getHistoryId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getHistoryId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getHistoryId)
+    div.appendChild(end);
+
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
