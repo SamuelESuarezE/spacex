@@ -34,8 +34,8 @@ import {
     render__description__main,
     render__description__values
 } from "../modulesComponents/rocketDescription.js"
-import { getAllCrew, getAllCrewId } from "../modules/crew.js";
-import { getAllLaunches, getAllLaunchesId } from "../modules/launches.js";
+import { getAllCrew, getAllCrewId, imageCrew, informationCrew } from "../modules/crew.js";
+import { getAllLaunches, getAllLaunchesId, informationLaunches } from "../modules/launches.js";
 import { getAllCores, getAllCoresId } from "../modules/cores.js";
 import { getAllLandpads, getAllLandpadsId } from "../modules/landpads.js";
 import { getAllShips, getAllShipsId } from "../modules/ships.js";
@@ -289,9 +289,9 @@ const getCrewId = async(e)=>{
 
     await nameRockets(Crew.name)
 
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
+    await informationCrew(Crew)
+    await imageCrew(Crew.image)
+
 
 
 }
@@ -354,13 +354,9 @@ const getLaunchesId = async(e)=>{
     await clear();
 
     await nameRockets(Launch.name)
-
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
-
-
+    await informationLaunches(Launch)
 }
+
 export const paginationLaunches = async(page=1, limit=4)=>{  
      
     let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunches(page, limit)
