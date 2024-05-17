@@ -38,7 +38,7 @@ import { getAllCrew, getAllCrewId, imageCrew, informationCrew } from "../modules
 import { getAllLaunches, getAllLaunchesId, imageLaunch, informationLaunches, informationLaunches2 } from "../modules/launches.js";
 import { getAllCores, getAllCoresId, informationCores } from "../modules/cores.js";
 import { getAllLandpads, getAllLandpadsId, imageLandpad, informationLandpads } from "../modules/landpads.js";
-import { getAllShips, getAllShipsId } from "../modules/ships.js";
+import { getAllShips, getAllShipsId, imageShips, informationShips } from "../modules/ships.js";
 import { getCompany } from "../modules/company.js";
 import { getAllDragons, getAllDragonsId } from "../modules/dragons.js";
 import { getAllHistory, getAllHistoryId } from "../modules/history.js";
@@ -549,10 +549,8 @@ const getShipsId = async(e)=>{
     await clear();
 
     await nameRockets(Ship.name)
-
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
+    await informationShips(Ship)
+    await imageShips(Ship.image)
 
 
 }
