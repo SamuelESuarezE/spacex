@@ -12,6 +12,7 @@ body {
     background: url(https://wallpaperset.com/w/full/f/b/7/427163.jpg);
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 }
 
 *::-webkit-scrollbar {

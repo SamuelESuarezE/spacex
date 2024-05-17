@@ -35,9 +35,9 @@ import {
     render__description__values
 } from "../modulesComponents/rocketDescription.js"
 import { getAllCrew, getAllCrewId, imageCrew, informationCrew } from "../modules/crew.js";
-import { getAllLaunches, getAllLaunchesId, informationLaunches } from "../modules/launches.js";
-import { getAllCores, getAllCoresId } from "../modules/cores.js";
-import { getAllLandpads, getAllLandpadsId } from "../modules/landpads.js";
+import { getAllLaunches, getAllLaunchesId, imageLaunch, informationLaunches, informationLaunches2 } from "../modules/launches.js";
+import { getAllCores, getAllCoresId, informationCores } from "../modules/cores.js";
+import { getAllLandpads, getAllLandpadsId, imageLandpad, informationLandpads } from "../modules/landpads.js";
 import { getAllShips, getAllShipsId } from "../modules/ships.js";
 import { getCompany } from "../modules/company.js";
 import { getAllDragons, getAllDragonsId } from "../modules/dragons.js";
@@ -355,6 +355,8 @@ const getLaunchesId = async(e)=>{
 
     await nameRockets(Launch.name)
     await informationLaunches(Launch)
+    await informationLaunches2(Launch)
+    await imageLaunch(Launch.links.patch.small)
 }
 
 export const paginationLaunches = async(page=1, limit=4)=>{  
@@ -416,6 +418,7 @@ const getCoresId = async(e)=>{
     await clear();
 
     await nameRockets(Core.serial)
+    await informationCores(Core)
 
     // await tablesCapsule(Capsule)
     // await tablesCapsule2(Capsule)
@@ -482,11 +485,8 @@ const getLandpadsId = async(e)=>{
     await clear();
 
     await nameRockets(Landpad.full_name)
-
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
-
+    await informationLandpads(Landpad)
+    await imageLandpad(Landpad.images.large)
 
 }
 export const paginationLandpads = async(page=1, limit=4)=>{  
