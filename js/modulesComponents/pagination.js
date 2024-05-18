@@ -39,13 +39,13 @@ import { getAllLaunches, getAllLaunchesId, imageLaunch, informationLaunches, inf
 import { getAllCores, getAllCoresId, informationCores } from "../modules/cores.js";
 import { getAllLandpads, getAllLandpadsId, imageLandpad, informationLandpads } from "../modules/landpads.js";
 import { getAllShips, getAllShipsId, imageShips, informationShips } from "../modules/ships.js";
-import { getCompany } from "../modules/company.js";
-import { getAllDragons, getAllDragonsId } from "../modules/dragons.js";
-import { getAllHistory, getAllHistoryId } from "../modules/history.js";
-import { getAllLaunchpads, getAllLaunchpadsId } from "../modules/launchpads.js";
-import { getAllPayloads, getAllPayloadsId } from "../modules/payloads.js";
-import { getRoadster } from "../modules/roadster.js";
-import { getAllStarlink, getAllStarlinkId } from "../modules/starlink.js";
+import { companyInformations, getCompany, imageCompany } from "../modules/company.js";
+import { getAllDragons, getAllDragonsId, imageDragon, informationDragons } from "../modules/dragons.js";
+import { getAllHistory, getAllHistoryId, informationHistory } from "../modules/history.js";
+import { getAllLaunchpads, getAllLaunchpadsId, imageLaunchpad, informationLaunchpads } from "../modules/launchpads.js";
+import { getAllPayloads, getAllPayloadsId, informationPayloads } from "../modules/payloads.js";
+import { getRoadster, imageRoadster, informationRoadster } from "../modules/roadster.js";
+import { getAllStarlink, getAllStarlinkId, informationStarlink } from "../modules/starlink.js";
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -594,6 +594,8 @@ export const companyInformation = async() => {
     let data = await getCompany()
     await clear()
     await nameRockets(data.name)
+    await companyInformations(data)
+    await imageCompany()
 }
 
 const getDragonsId = async(e)=>{
@@ -619,7 +621,8 @@ const getDragonsId = async(e)=>{
     await clear();
 
     await nameRockets(Dragon.name)
-
+    await informationDragons(Dragon)
+    await imageDragon(Dragon.flickr_images[0])
     // await tablesCapsule(Capsule)
     // await tablesCapsule2(Capsule)
     // await imageCapsule(Capsule)
@@ -684,10 +687,9 @@ const getHistoryId = async(e)=>{
     await clear();
 
     await nameRockets(History.title)
+    await informationHistory(History)
 
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
+
 }
 
 export const paginationHistory = async(page=1, limit=4)=>{  
@@ -749,7 +751,8 @@ const getLaunchpadsId = async(e)=>{
     await clear();
 
     await nameRockets(Launchpad.name)
-
+    await informationLaunchpads(Launchpad)
+    await imageLaunchpad(Launchpad.images.large[0])
     // await tablesCapsule(Capsule)
     // await tablesCapsule2(Capsule)
     // await imageCapsule(Capsule)
@@ -814,6 +817,7 @@ const getPayloadsId = async(e)=>{
     await clear();
 
     await nameRockets(Payload.name)
+    await informationPayloads(Payload)
 
     // await tablesCapsule(Capsule)
     // await tablesCapsule2(Capsule)
@@ -860,6 +864,8 @@ export const roadsterInformation = async() => {
     let data = await getRoadster()
     await clear()
     await nameRockets(data.name)
+    await informationRoadster(data)
+    await imageRoadster(data.flickr_images[0] , data.flickr_images[1])
 }
 
 const getStarlinkId = async(e)=>{
@@ -885,10 +891,8 @@ const getStarlinkId = async(e)=>{
     await clear();
 
     await nameRockets(Starlink.spaceTrack.OBJECT_NAME)
+    await informationStarlink(Starlink)
 
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
 }
 
 export const paginationStarlink = async(page=1, limit=4)=>{  
